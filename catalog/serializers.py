@@ -15,7 +15,7 @@ class ExtraInfoSerializer(serializers.ModelSerializer):
 
 
 class EventSerializer(serializers.ModelSerializer):
-    label = LabelSerializer()
+    #label = LabelSerializer()
     extra_infos = ExtraInfoSerializer(read_only=True,many=True)
     class Meta:
         model = Event
