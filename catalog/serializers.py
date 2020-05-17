@@ -7,16 +7,27 @@ class LabelSerializer(serializers.ModelSerializer): #HyperlinkedModelSerializer)
         model = Label
         fields = ['name']
 
+    def validate(self, attrs):
+        attrs['user'] = self.context['request'].user
+        return attrs
+
 
 class ExtraInfoSerializer(serializers.ModelSerializer):
     class Meta:
         model = ExtraInfo
         fields = ['info']
 
+    def validate(self, attrs):
+        attrs['user'] = self.context['request'].user
+        return attrs
+
 
 class EventSerializer(serializers.ModelSerializer):
-    #label = LabelSerializer()
     extra_infos = ExtraInfoSerializer(read_only=True,many=True)
     class Meta:
         model = Event
         fields = ['label', 'name', 'ts','extra_infos']
+
+    def validate(self, attrs):
+        attrs['user'] = self.context['request'].user
+        return attrs
