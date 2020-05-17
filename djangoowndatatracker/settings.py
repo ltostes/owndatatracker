@@ -132,3 +132,8 @@ CORS_ORIGIN_WHITELIST = (
 # Enabling Timezone management
 
 USE_TZ = True 
+
+# Configure Django App for Heroku.
+
+import django_heroku
+django_heroku.settings(locals())
