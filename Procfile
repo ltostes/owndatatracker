@@ -1,1 +1,1 @@
-web: gunicorn djangoowndatatracker.wsgi --log-file -
+web: gunicorn djangoowndatatracker.wsgi
