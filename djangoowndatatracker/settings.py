@@ -129,6 +129,13 @@ CORS_ORIGIN_WHITELIST = (
     'https://localhost:8080',
 )
 
+# Rest pagination
+
+REST_FRAMEWORK = {
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.LimitOffsetPagination',
+    'PAGE_SIZE': 100
+}
+
 # Enabling Timezone management
 
 USE_TZ = True 
